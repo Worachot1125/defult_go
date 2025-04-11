@@ -1,6 +1,7 @@
 package config
 
 import (
+	"app/internal/logger"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -10,7 +11,7 @@ import (
 func Init() {
 	// Load .env file
 	godotenv.Load()
-
+	logger.Init()
 	Database()
 	app()
 	OAuth()

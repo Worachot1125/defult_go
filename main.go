@@ -6,18 +6,21 @@ import (
 	"app/internal/cmd"
 	"log"
 
+
 	"github.com/spf13/cobra"
 )
+
 
 func main() {
 
 	config.Init() // Initialize configuration
 
 	// Start the HTTP server
-	if err := command(); err != nil {
-		log.Fatalf("Error running command: %v", err)
+		if err := command(); err != nil {
+			log.Fatalf("Error running command: %v", err)
+		}
 	}
-}
+
 
 // Command setup for running the HTTP server
 func command() error {

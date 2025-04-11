@@ -1,10 +1,10 @@
 package cmd
 
 import (
-	"context"
 	"app/database/migrations"
 	"app/database/seeds"
 	"app/internal/logger"
+	"context"
 
 	"github.com/uptrace/bun"
 )
@@ -13,6 +13,7 @@ func modelUp(db *bun.DB) error {
 	logger.Infof("Executing model up...")
 	for _, mod := range migrations.Models() {
 		if _, err := db.NewCreateTable().Model(mod).Exec(context.Background()); err != nil {
+			logger.Infof("Error creating table: %s", err)
 			return err
 		}
 	}
